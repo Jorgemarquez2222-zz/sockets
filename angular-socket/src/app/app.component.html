@@ -1,0 +1,23 @@
+<span>{{ parejaChat.user }} - </span>
+<span>{{ parejaChat.userId }}</span>
+<h3>Mis Mensajes</h3>
+<ul>
+    <li *ngFor="let mensaje of misMensajes">
+        <strong>{{ mensaje.remitente }} dice:</strong>  {{mensaje.msg}}
+    </li>
+</ul>
+<input type="text" [(ngModel)]="chatinp">
+<button (click)="send(chatinp, parejaChat.userId,user.value)" >Send</button>
+<br>
+<input #user type="text" >
+<button (click)="crearUser(user.value)" >Crear User</button>
+<hr>
+<ul>
+    <li *ngFor="let contacto of listaContactosConectados" >
+           
+            <span (click)="obtenerParejaChat(contacto)">{{contacto.user}} - {{contacto.userId}}</span>
+
+    </li>
+</ul>
+<!--<input type="text" [(ngModel)]="roomnme">
+<button (click)="joinroom(roomnme)" >Connetc</button>-->
